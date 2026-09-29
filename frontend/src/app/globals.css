@@ -1,0 +1,267 @@
+/* globals.css — Editorial signal studio design system. */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Space+Mono:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #eee8da;
+  --bg-secondary: #e3dac9;
+  --bg-card: #f8f4ea;
+  --bg-elevated: #fffaf0;
+  --border-subtle: #c8bda9;
+  --border-active: #d34a2f45;
+  --text-primary: #1d2925;
+  --text-secondary: #5f665d;
+  --text-muted: #8d8a7d;
+  --accent-cyan: #d34a2f;
+  --accent-amber: #c49125;
+  --danger-red: #b7353d;
+  --success-green: #657d4d;
+  --semantic-drift: #c86d3c;
+  --hallucination: #69578f;
+  --collapse: #b7353d;
+  --stable: #657d4d;
+  /* Stage colors */
+  --stage-stable: #657d4d;
+  --stage-drift: #c49125;
+  --stage-semantic: #c86d3c;
+  --stage-hallucination: #69578f;
+  --stage-collapse: #b7353d;
+}
+
+/* Base*/
+@layer base {
+  * {
+    border-color: var(--border-subtle);
+  }
+
+  html {
+    color-scheme: light;
+    background-color: var(--bg-primary);
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    background-image: radial-gradient(rgba(29, 41, 37, 0.06) 0.7px, transparent 0.7px);
+    background-size: 7px 7px;
+    color: var(--text-primary);
+    font-family: "DM Sans", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "tnum" 1;
+  }
+
+  h1, h2, h3 {
+    font-family: "Fraunces", Georgia, serif;
+    letter-spacing: -0.025em;
+  }
+
+  /* Tabular, monospaced numerals everywhere by default for instrument feel. */
+  ::selection {
+    background-color: var(--accent-cyan);
+    color: var(--bg-primary);
+  }
+
+  /* Thin paper-toned custom scrollbar. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-subtle) transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--border-subtle);
+    border-radius: 9999px;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent-cyan);
+  }
+}
+
+/* Components / utilities */
+@layer components {
+  /* Space Mono for data + numbers. */
+  .mono {
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .display {
+    font-family: "Fraunces", Georgia, serif;
+    letter-spacing: -0.04em;
+  }
+
+  .eyebrow {
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-cyan);
+  }
+
+  /* Large monospace metric readout (oscilloscope-style). */
+  .metric-value {
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 2rem;
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+
+  /* Pill badge for failure stages. Pair with a stage color via inline style
+   * or a Tailwind text/border color utility. */
+  .stage-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.15rem 0.6rem;
+    border-radius: 9999px;
+    font-family: "Space Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border: 1px solid currentColor;
+    background-color: color-mix(in srgb, currentColor 12%, transparent);
+  }
+  .stage-badge::before {
+    content: "";
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 9999px;
+    background-color: currentColor;
+    box-shadow: 0 0 6px currentColor;
+  }
+
+  /* Glow text-shadow helpers for active / alert states. */
+  .glow-cyan {
+    text-shadow: 0 0 8px color-mix(in srgb, var(--accent-cyan) 70%, transparent),
+      0 0 18px color-mix(in srgb, var(--accent-cyan) 35%, transparent);
+  }
+  .glow-red {
+    text-shadow: 0 0 8px color-mix(in srgb, var(--danger-red) 70%, transparent),
+      0 0 18px color-mix(in srgb, var(--danger-red) 35%, transparent);
+  }
+  .glow-green {
+    text-shadow: 0 0 8px color-mix(in srgb, var(--success-green) 70%, transparent),
+      0 0 18px color-mix(in srgb, var(--success-green) 35%, transparent);
+  }
+
+  /* 1px decorative horizontal line with a subtle cyan gradient. */
+  .signal-line {
+    height: 1px;
+    width: 100%;
+    border: 0;
+    background: var(--border-subtle);
+  }
+
+  /* Decorative blueprint grid background (subtle), for panels/sections. */
+  .grid-bg {
+    background-image: linear-gradient(
+        var(--border-subtle) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, var(--border-subtle) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-position: center;
+  }
+
+  .paper-panel {
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-card);
+    box-shadow: 5px 5px 0 color-mix(in srgb, var(--text-primary) 9%, transparent);
+  }
+
+  .ink-rule {
+    border-top: 2px solid var(--text-primary);
+  }
+}
+
+/* Signal-processing micro-animations */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 4px currentColor);
+  }
+  50% {
+    opacity: 0.55;
+    filter: drop-shadow(0 0 10px currentColor);
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes signal-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  94% {
+    opacity: 0.4;
+  }
+  96% {
+    opacity: 1;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 1.8s ease-in-out infinite;
+}
+.animate-scan-line {
+  animation: scan-line 2.2s linear infinite;
+}
+.animate-signal-flicker {
+  animation: signal-flicker 4s linear infinite;
+}
+
+/* Shared shimmer skeleton (LoadingSkeleton component). */
+@keyframes ail-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+.ail-skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 0.5rem;
+}
+.ail-skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--accent-cyan) 7%, transparent) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: ail-shimmer 1.6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ail-skeleton::after {
+    animation: none;
+  }
+}

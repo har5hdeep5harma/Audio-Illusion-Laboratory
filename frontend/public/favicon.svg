@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>Audio Illusion Laboratory</title>
+  <rect width="64" height="64" rx="14" fill="#eee8da"/>
+  <path d="M12 43 24 18l12 25h-7l-2.5-6H21l-2.5 6H12Zm11.5-12h1L24 28.5 23.5 31Z" fill="#1d2925"/>
+  <path d="M37 19h6v18c0 3 1.4 4.5 4.2 4.5 2.7 0 4.1-1.5 4.1-4.5V19h6v18.5c0 7-3.5 10.5-10.1 10.5S37 44.5 37 37.5V19Z" fill="#d34a2f"/>
+  <circle cx="54" cy="12" r="3" fill="#d34a2f"/>
+</svg>

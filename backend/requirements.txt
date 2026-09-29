@@ -1,0 +1,15 @@
+fastapi
+uvicorn[standard]
+faster-whisper
+numpy
+scipy
+librosa
+soundfile
+pydub
+jiwer
+sentence-transformers
+python-multipart
+aiofiles
+pydantic
+python-dotenv
+httpx
