@@ -1,4 +1,7 @@
-# Audio Illusion Laboratory
+<h1 align="center">Audio Illusion Laboratory</h1>
+<img src="https://raw.githubusercontent.com/har5hdeep5harma/Audio-Illusion-Laboratory/refs/heads/main/Miscellaneous/1.png"/>
+<img src="https://raw.githubusercontent.com/har5hdeep5harma/Audio-Illusion-Laboratory/refs/heads/main/Miscellaneous/2.png"/>
+<img src="https://raw.githubusercontent.com/har5hdeep5harma/Audio-Illusion-Laboratory/refs/heads/main/Miscellaneous/3.png"/>
 
 > **An instrument for watching machine hearing fail.**
 
